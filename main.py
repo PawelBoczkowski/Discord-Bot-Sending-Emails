@@ -18,10 +18,9 @@ client = discord.Client()
                 #emails.append(line)
 
 
-def write_emails(mails, *args):
-    for arg in args:
-        mails.remove(arg)
+def write_emails(mails):
     for mail in mails:
+        print("petla write emails")
         with open('emails.txt','a') as f:
             f.write(mail+"\n")
 
@@ -57,8 +56,8 @@ async def on_message(message):
         email = message.content[5:]
         print("Trying to add "+message.content[5:]+" to emails")
         if email not in emails:
+            #emails.append(message.content[5:])
             print("Added "+message.content[5:]+" to emails")
-            emails.append(message.content[5:])
             #print("Dodaje emaila append")
             write_emails(emails)
 
