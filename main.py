@@ -11,29 +11,21 @@ emails = list()
 client = discord.Client()
 
 
-#if os.path.isfile('emails.txt'):
-    #with open('emails.txt') as file:
-        #for line in file:
-            #if line not in emails:
-                #emails.append(line)
-
-
 def write_emails(mails):
     for mail in mails:
-        print("petla write emails")
         with open('emails.txt','a') as f:
             f.write(mail+"\n")
 
 def send_email(): 
-    gmail_user = 'playnityrecruitment@gmail.com'
-    gmail_pwd = 'Playnity123'
+    gmail_user = 'YourEmail@gmail.com'
+    gmail_pwd = 'PasswordToYourEmail'
 
     try:
         es = EmailSender('smtp.gmail.com',465)
         es.login(gmail_user, gmail_pwd)
         for email in emails:
-            #es.send("test","PlayNity Scholarship Invitation",email)
-            print("successfully sent the mail to "+email)
+            es.send("Text of email","Title of email",email)
+            print("Successfully sent the mail to "+email)
             emails.remove(email)
     except: print("failed to send mail to "+email)
 
@@ -56,9 +48,8 @@ async def on_message(message):
         email = message.content[5:]
         print("Trying to add "+message.content[5:]+" to emails")
         if email not in emails:
-            #emails.append(message.content[5:])
+            emails.append(message.content[5:])
             print("Added "+message.content[5:]+" to emails")
-            #print("Dodaje emaila append")
             write_emails(emails)
 
         else:
@@ -73,7 +64,7 @@ async def on_message(message):
         if str(message.author) == 'pawel#0407':
             for email in emails:
                 print(f"email wyslany do {email}")
-                #send_email()
+                send_email()
 
 
-client.run('OTAwNzQ5NjUwNTkwNTkzMDM1.YXF2ew.IvhTnY3Zf70737iZYVhoOtaNPU8')
+client.run('YourToken')
