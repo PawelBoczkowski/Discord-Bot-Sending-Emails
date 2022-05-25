@@ -60,7 +60,7 @@ async def on_message(message):
         write_emails(emails, message.content[5:])
         
 
-    while True:
+    while emails:
         for email in emails:
             send_email()
             print(f"Email sended to {email}")
