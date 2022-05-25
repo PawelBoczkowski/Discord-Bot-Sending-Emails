@@ -61,9 +61,9 @@ async def on_message(message):
         
 
     elif message.type is MessageType.default:
-        if str(message.author) == 'pawel#0407':
+        if str(message.author) == 'YourDiscordID':
             for email in emails:
-                print(f"email wyslany do {email}")
+                print(f"Email sended to {email}")
                 send_email()
 
 
