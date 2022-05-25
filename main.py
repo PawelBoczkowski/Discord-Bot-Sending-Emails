@@ -60,11 +60,11 @@ async def on_message(message):
         write_emails(emails, message.content[5:])
         
 
-    elif message.type is MessageType.default:
-        if str(message.author) == 'YourDiscordID':
-            for email in emails:
-                print(f"Email sended to {email}")
-                send_email()
+    while True:
+        for email in emails:
+            send_email()
+            print(f"Email sended to {email}")
+                
 
 
 client.run('YourToken')
