@@ -1,1 +1,3 @@
 paste e-mail addresses to send them e-mails :)
+
+REMEMBER WHEN ADDING EMAIL MANUALLY TO END EVERY LINE WITH ENTER (start next line)
